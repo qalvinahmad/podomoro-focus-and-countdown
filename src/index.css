@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Integrasi dengan styles.css */
+:root {
+  --primary-gradient: linear-gradient(135deg, #4299e1, #3182ce);
+  --box-shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --box-shadow-md: 0 4px 6px rgba(49, 130, 206, 0.2);
+  --box-shadow-lg: 0 10px 25px rgba(0,0,0,0.08);
+  --border-radius: 8px;
+  --transition-default: all 0.3s ease;
+}
+
+/* Tambahan gaya dasar */
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa, #e2e8f0);
+  color: #2d3748;
+}
+
+/* Komponen umum */
+.btn-primary {
+  @apply px-4 py-2 rounded-lg bg-blue-500 text-white font-medium shadow-md transition-all duration-300;
+  background: var(--primary-gradient);
+}
+
+.btn-primary:hover {
+  @apply transform -translate-y-1 shadow-lg;
+}

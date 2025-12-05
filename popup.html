@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus To-Do</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="home"><i class="fas fa-home"></i> Home</button>
+            <button class="tab-btn" data-tab="timer"><i class="fas fa-clock"></i> Timer</button>
+            <button class="tab-btn" data-tab="schedule"><i class="fas fa-calendar-alt"></i> Schedule</button>
+            <button class="tab-btn" data-tab="countdown"><i class="fas fa-hourglass-half"></i> Countdown</button>
+        </div>
+
+        <div class="tab-content" id="home-tab">
+            <div class="datetime-section">
+                <div class="time" id="current-time">00:00:00</div>
+                <div class="date" id="current-date">Monday, 1 January 2024</div>
+            </div>
+            
+            <div class="home-grid">
+                
+                <div class="home-schedule">
+                    <h3><i class="fas fa-calendar-day"></i> Today's Schedule</h3>
+                    <div class="home-schedule-list"></div>
+                </div>
+                
+                <!-- Divider -->
+                <div class="divider"></div>
+                
+                <div class="home-countdown">
+                    <h3><i class="fas fa-calendar-week"></i> Upcoming Events</h3>
+                    <div class="home-countdown-list"></div>
+                </div>
+
+                <div class="divider"></div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="timer-tab">
+            <div class="timer-section">
+                <!-- Circular Timer -->
+                <div class="timer-circle-container">
+                    <svg class="timer-circle" width="150" height="150" viewBox="0 0 150 150">
+                        <circle class="circle-background" cx="75" cy="75" r="70" stroke-width="10" fill="none" />
+                        <circle class="circle-progress" cx="75" cy="75" r="70" stroke-width="10" fill="none" stroke-dasharray="439.82" stroke-dashoffset="439.82" />
+                    </svg>
+                    <div class="timer-display">
+                        <div class="floating-timer hidden">
+                            <span id="floating-minutes">25</span>:<span id="floating-seconds">00</span>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="timer-controls">
+                    <button id="start-timer" class="btn"><i class="fas fa-play"></i> Start</button>
+                    <button id="reset-timer" class="btn"><i class="fas fa-redo"></i> Reset</button>
+                </div>
+            
+                <div class="timer-modes">
+                    <button class="mode-btn active" data-time="25">Pomodoro</button>
+                    <button class="mode-btn" data-time="5">Short Break</button>
+                    <button class="mode-btn" data-time="15">Long Break</button>
+                </div>
+            </div>
+            
+
+            <div class="todo-section">
+                <h2><i class="fas fa-tasks"></i> Tasks</h2>
+                <div class="todo-input">
+                    <input type="text" id="task-input" placeholder="Add a new task...">
+                    <button id="add-task" class="btn"><i class="fas fa-plus"></i> Add</button>
+                </div>
+                <ul id="task-list"></ul>
+            </div>
+        </div>
+
+        <div class="tab-content hidden" id="schedule-tab">
+            <div class="schedule-section">
+                <h2><i class="fas fa-calendar-check"></i> Daily Schedule</h2>
+                <div class="schedule-input">
+                    <input type="text" id="schedule-title" placeholder="Event title">
+                    <input type="time" id="schedule-time">
+                </div>
+                <button id="add-schedule" class="btn"><i class="fas fa-plus"></i> Add</button>
+                <div class="schedule-list"></div>
+            </div>
+        </div>
+
+        <div class="tab-content hidden" id="countdown-tab">
+            <div class="countdown-section">
+                <h2><i class="fas fa-hourglass-end"></i> Target Countdown</h2>
+                <div class="countdown-input">
+                    <input type="text" id="countdown-title" placeholder="Event title">
+                    <input type="date" id="countdown-date">
+                    <button id="add-countdown" class="btn"><i class="fas fa-plus"></i> Add</button>
+                </div>
+                <div class="countdown-list"></div>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
